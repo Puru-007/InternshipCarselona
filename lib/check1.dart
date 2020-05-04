@@ -1,10 +1,11 @@
-import 'dart:ffi';
 
-
+import 'package:carselona1/myRadio1.dart';
+import 'package:carselona1/radioCheck.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
+
 
 //import 'core/services/utils/ui_utils.dart';
 
@@ -192,8 +193,6 @@ class _CheckState extends State<Check1> {
 }
 
 /// this function will be responsible for adding estimation to given issue
-
-
 void _createEstimationBottomSheet(BuildContext context) {
   // TODO-7: remove gstRadioTitle from above class and insert here as we are going to create radio button in this method.
   List<String> gstRadioTitle = [
@@ -316,7 +315,8 @@ void _createEstimationBottomSheet(BuildContext context) {
 
                           //TODO-14: I suppose you have created above method. so now we will call this method: customRadioGroup(solutionRadioTitle)
                           //done
-                          customRadioGroup(solutionRadioTile),
+//                          customRadioGroup(solutionRadioTile),
+                          MyStatefulWidget1(titles: solutionRadioTile)
 
                           //TODO-15: Remove below Column() and entire code inside it. we won't be needing this any more.
                           //removed
@@ -381,7 +381,8 @@ void _createEstimationBottomSheet(BuildContext context) {
                             //TODO-16: Remove below "Padding" widget and entire code for creating radio button because we have already created method for crating radio button
                             //removed
                             //TODO-17: Once above code(Padding) is deleted please call: customRadioGroup(gstRadioTitle)
-                            customRadioGroup(gstRadioTitle),
+//                            customRadioGroup(gstRadioTitle),
+                          MyStatefulWidget1(titles: gstRadioTitle),
 
                             FlatButton(
                               onPressed: null,
@@ -465,36 +466,9 @@ void _createEstimationBottomSheet(BuildContext context) {
   );
 }
 
-//context _changeRadioState() {
-//  return customRadioGroup(radioTitle);
-//
-//}
 
-class LabeledRadio extends StatelessWidget {
-  const LabeledRadio({
-    this.label,
-    this.padding,
-    this.groupValue,
-    this.value,
-    this.onChanged,
-  });
-  final String label;
-  final EdgeInsets padding;
-  final bool groupValue;
-  final bool value;
-  final Function onChanged;
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
-  }
-
-
-}
 //TODO-10: create method "customRadioGroup" which will accept list of string and will return widget. Below I have created sample which you can use(uncomment below code for use).
 Widget customRadioGroup(List<String> radioTitle){
-
   return Container(
     // TODO-11: create a row
     //done
@@ -505,10 +479,9 @@ Widget customRadioGroup(List<String> radioTitle){
           value: "$titles",
           groupValue: 0,
           onChanged: (value) {
-            
+
           },
         ),
-
         Text(
           '$titles',
         ),
